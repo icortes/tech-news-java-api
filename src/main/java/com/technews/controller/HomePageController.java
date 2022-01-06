@@ -62,7 +62,7 @@ public class HomePageController {
         List<Post> postList = postRepository.findAll();
         for (Post p : postList) {
             p.setVoteCount(voteRepository.countVotesByPostId(p.getId()));
-            User user = userRepository.getOne(p.getUserId());
+            User user = userRepository.getById(p.getUserId());
             p.setUserName(user.getUsername());
         }
 
